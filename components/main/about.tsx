@@ -50,19 +50,26 @@ export const About = () => {
             className="flex-1 text-center md:text-left"
           >
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              I&apos;m a full-stack developer with a passion for creating
-              innovative digital experiences. With expertise in modern web
-              technologies, I transform ideas into elegant, functional solutions
-              that make a difference.
+              Hello! I&apos;m Haruki Nakamura, a passionate full-stack developer 
+              specializing in building exceptional digital experiences. Currently, 
+              I focus on creating responsive web applications using Next.js, React, 
+              and modern backend technologies.
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              My journey in software development has been driven by curiosity and
-              a commitment to continuous learning. I thrive on solving complex
-              problems and building applications that combine cutting-edge
-              technology with intuitive design.
+              My journey in tech started with a curiosity for how things work, which 
+              evolved into a career where I get to solve real-world problems through 
+              code. I believe in writing clean, maintainable code and creating 
+              user-centric designs that not only look great but also provide seamless 
+              functionality.
+            </p>
+            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+              When I&apos;m not coding, you&apos;ll find me exploring new technologies, 
+              contributing to open-source projects, or sharing knowledge with the 
+              developer community. I&apos;m always eager to take on new challenges 
+              and collaborate on innovative projects.
             </p>
             <p className="cursive text-[20px] text-gray-200 mt-8">
-              Let&apos;s build something amazing together.
+              Let&apos;s create something extraordinary together.
             </p>
           </motion.div>
 

@@ -31,23 +31,21 @@ export const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl text-bold text-white max-w-[800px] w-auto h-auto"
+          className="flex flex-col gap-6 mt-6 text-6xl font-extrabold text-white max-w-[800px] w-auto h-auto"
         >
-          <span>Howdy!</span>
           <span>
-            This is{" "}
+          Providing{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Haruki Nakamura
+           the best
             </span>
-          </span>
+          </span>{" "}project exprience
         </motion.div>
 
         <motion.p
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          I&apos;m a Passionate Developer & Creative Thinker with experience in Website,
-          Mobile, and Software development. Check out my projects and skills.
+          I&apos;m a full-stack developer with a passion for creating innovative digital experiences. With expertise in modern web technologies, I transform ideas into elegant, functional solutions that make a difference.
         </motion.p>
 
         <motion.a
@@ -65,8 +63,8 @@ export const HeroContent = () => {
         <Image
           src="/hero-bg.svg"
           alt="work icons"
-          height={550}
-          width={550}
+          height={650}
+          width={650}
           draggable={false}
           className="select-none"
         />

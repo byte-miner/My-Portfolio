@@ -17,15 +17,7 @@ export const Navbar = () => {
           href="/"
           className="flex items-center"
         >
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={70}
-            height={70}
-            draggable={false}
-            className="cursor-pointer"
-          />
-          <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">John Doe</div>
+          <div className="hidden md:flex md:selffont-bold ml-[10px] text-gray-300">Haruki Nakamura</div>
         </Link>
 
         {/* Web Navbar */}
