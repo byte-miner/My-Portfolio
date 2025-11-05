@@ -147,10 +147,10 @@ export const Contact = () => {
         >
           <p className="text-gray-400 mb-4">Or reach me directly at</p>
           <a
-            href="mailto:contact@example.com"
+            href="mailto:harukin399@gmail.com"
             className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 transition-all"
           >
-            contact@example.com
+            harukin399@gmail.com
           </a>
         </motion.div>
       </motion.div>
