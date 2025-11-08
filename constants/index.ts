@@ -1,4 +1,5 @@
-import { FaYoutube, FaFacebook } from "react-icons/fa";
+import { FaYoutube, FaFacebook, FaTelegram, FaStackOverflow, FaDev } from "react-icons/fa";
+import { HiMail } from "react-icons/hi";
 import {
   RxDiscordLogo,
   RxGithubLogo,
@@ -90,19 +91,19 @@ export const SKILL_DATA = [
 
 export const SOCIALS = [
   {
-    name: "Instagram",
-    icon: RxInstagramLogo,
-    link: "https://instagram.com",
+    name: "GitHub",
+    icon: RxGithubLogo,
+    link: "https://github.com/byte-miner",
   },
   {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com",
+    name: "Discord",
+    icon: RxDiscordLogo,
+    link: "https://discord.com",
   },
   {
-    name: "Twitter",
-    icon: RxTwitterLogo,
-    link: "https://twitter.com",
+    name: "Telegram",
+    icon: FaTelegram,
+    link: "https://t.me/yourusername",
   },
 ] as const;
 
@@ -259,42 +260,42 @@ export const OTHER_SKILL = [
 
 export const FOOTER_DATA = [
   {
-    title: "Community",
+    title: "Developer",
     data: [
-      {
-        name: "YouTube",
-        icon: FaYoutube,
-        link: "https://youtube.com",
-      },
       {
         name: "GitHub",
         icon: RxGithubLogo,
-        link: "https://github.com",
+        link: "https://github.com/byte-miner",
       },
       {
-        name: "Discord",
-        icon: RxDiscordLogo,
-        link: "https://discord.com",
+        name: "Stack Overflow",
+        icon: FaStackOverflow,
+        link: "https://stackoverflow.com/users/youruserid",
+      },
+      {
+        name: "Dev Community",
+        icon: FaDev,
+        link: "https://dev.to/yourusername",
       },
     ],
   },
   {
-    title: "Social Media",
+    title: "Connect",
     data: [
       {
-        name: "Instagram",
-        icon: RxInstagramLogo,
-        link: "https://instagram.com",
+        name: "Email",
+        icon: HiMail,
+        link: "mailto:harukin399@gmail.com",
       },
       {
-        name: "Twitter",
-        icon: RxTwitterLogo,
-        link: "https://twitter.com",
+        name: "Telegram",
+        icon: FaTelegram,
+        link: "https://t.me/yourusername",
       },
       {
-        name: "Linkedin",
-        icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
+        name: "Discord",
+        icon: RxDiscordLogo,
+        link: "https://discord.gg/yourinvite",
       },
     ],
   },
@@ -302,19 +303,19 @@ export const FOOTER_DATA = [
     title: "About",
     data: [
       {
-        name: "Become Sponsor",
+        name: "About Me",
         icon: null,
-        link: "https://youtube.com",
+        link: "/#about-me",
       },
       {
-        name: "Learning about me",
+        name: "My Projects",
         icon: null,
-        link: "https://example.com",
+        link: "/projects",
       },
       {
         name: "Contact Me",
         icon: null,
-        link: "mailto:harukin399@gmail.com",
+        link: "/#contact",
       },
     ],
   },
