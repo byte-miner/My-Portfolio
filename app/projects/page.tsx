@@ -13,57 +13,93 @@ import {
 
 const PROJECTS = [
   {
-    title: "Modern Next.js Portfolio",
+    title: "MUNITY Ecosystem",
     description:
-      "A dynamic showcase of skills and experiences powered by Next.js. This portfolio features cutting-edge web technologies, smooth animations with Framer Motion, and a beautiful space-themed design.",
-    image: "/projects/project-1.png",
+      "Explore our vibrant marketplace where you can buy and sell NFT horses, game consumables, and items using MUNITY tokens! Join the community and dive into a world of endless possibilities.",
+    image: "/projects/nftmarketplace.png",
     link: "https://example.com",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    tags: ["React.js", "Web3", "Smart Contracts", "Blockchain"],
     featured: true,
   },
   {
-    title: "Interactive Cards Portfolio",
+    title: "Goldencity",
     description:
-      "An innovative and visually captivating platform that leverages interactive cards to showcase skills and projects. Features dynamic animations and modern UI/UX principles.",
-    image: "/projects/project-2.png",
+      "GoldenCity is a modern real estate investment platform that combines traditional property investing with cryptocurrency payments. Built with React and Tailwind CSS, it mirrors the functionality of Arrived.com while adding blockchain-based transaction capabilities.",
+    image: "/projects/goldencity.png",
     link: "https://example.com",
-    tags: ["React", "CSS", "JavaScript", "Animation"],
+    tags: ["React", "Tailwind CSS", "Blockchain", "Web3"],
     featured: true,
   },
   {
-    title: "Space Themed Website",
+    title: "Digital Hero",
     description:
       "A mesmerizing space-themed website that invites exploration of cosmic wonders. Features immersive visual effects, 3D elements, and interactive components.",
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+    image: "/projects/digital-hero.png",
+    link: "https://www.digi-hero.com/",
     tags: ["Next.js", "Three.js", "WebGL", "CSS"],
     featured: true,
   },
   {
-    title: "E-Commerce Platform",
+    title: "CryptoLand",
     description:
-      "Full-stack e-commerce solution with shopping cart, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
-    image: "/projects/project-1.png",
-    link: "https://example.com",
+      "CryptoLand is a blockchain game on XRPL where players grow kingdoms and turn gameplay into real on-chain value.",
+    image: "/projects/cryptoland.png",
+    link: "https://game.cryptoland.io/",
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
     featured: false,
   },
   {
-    title: "Task Management App",
+    title: "Snargons",
     description:
-      "Collaborative task management application with real-time updates, team features, and intuitive drag-and-drop interface.",
-    image: "/projects/project-2.png",
-    link: "https://example.com",
+      "Discover Snargons, where NFTs meet purpose. Join us in building a thriving community of adventurers and creators.",
+    image: "/projects/snargons.png",
+    link: "https://www.snargons.xyz/",
     tags: ["React", "Firebase", "Material UI", "WebSocket"],
     featured: false,
   },
   {
-    title: "Social Media Dashboard",
+    title: "Flaregods",
     description:
-      "Analytics dashboard for social media management with data visualization, automated reporting, and multi-platform integration.",
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+      "This promotes an NFT collection that promises passive income through cashback and token distribution to holders.",
+    image: "/projects/flaregods.png",
+    link: "https://flaregods.xyz/",
     tags: ["Next.js", "TypeScript", "Chart.js", "REST API"],
+    featured: false,
+  },
+  {
+    title: "Arcus",
+    description:
+      "Secure multi-custodial Bitcoin lending for family offices and institutions. Generate institutional Bitcoin yield through native DeFi solutions with insured custody.",
+    image: "/projects/arcus.png",
+    link: "https://arcusbtc.com/",
+    tags: ["React", "Firebase", "Material UI", "WebSocket"],
+    featured: false,
+  },
+  {
+    title: "Covesting",
+    description:
+      "Covesting is a licensed Distributed Ledger Technology Services provider. We develop innovative trading tools for retail and institutional customers.",
+    image: "/projects/covesting.png",
+    link: "https://covesting.io/",
+    tags: ["React", "Firebase", "Material UI", "WebSocket"],
+    featured: false,
+  },
+  {
+    title: "UniDex",
+    description:
+      "Unidex 50 Tablet ER is a prescription medication used to treat depression by increasing the levels of chemical messengers, serotonin, and noradrenaline, in the brain. These chemicals have a calming effect on the brain and help relax the nerves, ultimately aiding in the treatment of depression.",
+    image: "/projects/unidex.png",
+    link: "https://unidex.exchange/",
+    tags: ["React", "Ethereum", "Binance Coin", "Solidity", "Smart Contracts", "Vue", "Angular"],
+    featured: false,
+  },
+  {
+    title: "PokeDX",
+    description:
+      "Unidex 50 Tablet ER is a prescription medication used to treat depression by increasing the levels of chemical messengers, serotonin, and noradrenaline, in the brain. These chemicals have a calming effect on the brain and help relax the nerves, ultimately aiding in the treatment of depression.",
+    image: "/projects/pokedx.png",
+    link: "https://pokedx.app/",
+    tags: ["Vue", "Ethereum", "Solidity", "Smart Contracts", "React"],
     featured: false,
   },
 ];
