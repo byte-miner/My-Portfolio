@@ -152,6 +152,16 @@ export const Contact = () => {
 
   useEffect(() => {
     const updateJapanTime = () => {
+      // Map language codes to locale codes
+      const localeMap: Record<string, string> = {
+        'en': 'en-US',
+        'ja': 'ja-JP',
+        'es': 'es-ES',
+        'pt': 'pt-BR',
+        'zh': 'zh-CN',
+      };
+      const locale = localeMap[language] || 'en-US';
+
       const now = new Date();
       const japanFormatter = new Intl.DateTimeFormat("en-US", {
         timeZone: "Asia/Tokyo",
@@ -161,14 +171,14 @@ export const Contact = () => {
         hour12: false,
       });
 
-      const dateFormatter = new Intl.DateTimeFormat("en-US", {
+      const dateFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: "Asia/Tokyo",
         month: "long",
         day: "numeric",
         year: "numeric",
       });
 
-      const dayFormatter = new Intl.DateTimeFormat("en-US", {
+      const dayFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: "Asia/Tokyo",
         weekday: "long",
       });
@@ -202,7 +212,7 @@ export const Contact = () => {
     const interval = setInterval(updateJapanTime, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [language]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

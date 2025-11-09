@@ -221,6 +221,39 @@ export const BACKEND_SKILL = [
   },
 ] as const;
 
+export const BLOCKCHAIN_SKILL = [
+  {
+    skill_name: "Ethereum",
+    image: "ether.png",
+    width: 70,
+    height: 70,
+  },
+  {
+    skill_name: "Solidity",
+    image: "solidity.png",
+    width: 70,
+    height: 70,
+  },
+  {
+    skill_name: "Web3",
+    image: "web3.png",
+    width: 70,
+    height: 70,
+  },
+  {
+    skill_name: "Solana",
+    image: "solana.png",
+    width: 70,
+    height: 70,
+  },
+  {
+    skill_name: "Rust",
+    image: "rust.png",
+    width: 70,
+    height: 70,
+  },
+] as const;
+
 export const FULLSTACK_SKILL = [
   {
     skill_name: "React Native",
