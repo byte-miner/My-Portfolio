@@ -8,7 +8,7 @@ import {
   PaintBrushIcon,
   RocketLaunchIcon,
   ServerIcon,
-  ShieldCheckIcon,
+  CircleStackIcon,
 } from "@heroicons/react/24/outline";
 
 import {
@@ -16,53 +16,52 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
-
-const SERVICES = [
-  {
-    icon: CodeBracketIcon,
-    title: "Web Development",
-    description:
-      "Build responsive and modern web applications using the latest technologies like React, Next.js, and TypeScript.",
-    features: ["Responsive Design", "SEO Optimization", "Fast Performance"],
-  },
-  {
-    icon: DevicePhoneMobileIcon,
-    title: "Mobile Development",
-    description:
-      "Create native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.",
-    features: ["React Native", "iOS & Android", "Smooth Animations"],
-  },
-  {
-    icon: PaintBrushIcon,
-    title: "UI/UX Design",
-    description:
-      "Design beautiful and intuitive user interfaces that engage users and enhance the overall user experience.",
-    features: ["User Research", "Wireframing", "Prototyping"],
-  },
-  {
-    icon: ServerIcon,
-    title: "Backend Development",
-    description:
-      "Develop robust and scalable backend systems with modern frameworks and databases to power your applications.",
-    features: ["RESTful APIs", "Database Design", "Cloud Deployment"],
-  },
-  {
-    icon: RocketLaunchIcon,
-    title: "Full Stack Solutions",
-    description:
-      "End-to-end development services covering everything from concept to deployment and maintenance.",
-    features: ["Complete Solutions", "DevOps", "Maintenance"],
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "Security & Performance",
-    description:
-      "Ensure your applications are secure, performant, and optimized for the best user experience.",
-    features: ["Security Audits", "Performance Tuning", "Best Practices"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/locales/translations";
 
 export default function ServicesPage() {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+
+  const SERVICES = [
+    {
+      icon: CodeBracketIcon,
+      title: t.services.webDev.title,
+      description: t.services.webDev.description,
+      features: t.services.webDev.features,
+    },
+    {
+      icon: DevicePhoneMobileIcon,
+      title: t.services.mobileDev.title,
+      description: t.services.mobileDev.description,
+      features: t.services.mobileDev.features,
+    },
+    {
+      icon: PaintBrushIcon,
+      title: t.services.uiux.title,
+      description: t.services.uiux.description,
+      features: t.services.uiux.features,
+    },
+    {
+      icon: ServerIcon,
+      title: t.services.api.title,
+      description: t.services.api.description,
+      features: t.services.api.features,
+    },
+    {
+      icon: CircleStackIcon,
+      title: t.services.database.title,
+      description: t.services.database.description,
+      features: t.services.database.features,
+    },
+    {
+      icon: RocketLaunchIcon,
+      title: t.services.devops.title,
+      description: t.services.devops.description,
+      features: t.services.devops.features,
+    },
+  ];
+
   return (
     <main className="h-full w-full">
       <div className="flex flex-col gap-20 pt-32 pb-20">
@@ -79,7 +78,7 @@ export default function ServicesPage() {
               className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
             >
               <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-              <h1 className="Welcome-text text-[13px]">Services</h1>
+              <h1 className="Welcome-text text-[13px]">{t.services.badge}</h1>
             </motion.div>
 
             {/* Main Title */}
@@ -87,9 +86,9 @@ export default function ServicesPage() {
               variants={slideInFromLeft(0.5)}
               className="text-[40px] md:text-[50px] text-white font-medium mt-[20px] text-center mb-[15px]"
             >
-              What I{" "}
+              {t.services.title}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-                Offer
+                {t.services.title2}
               </span>
             </motion.div>
 
@@ -99,8 +98,7 @@ export default function ServicesPage() {
               className="text-center max-w-[700px]"
             >
               <p className="text-lg text-gray-300 leading-relaxed mb-4">
-                Comprehensive development services tailored to bring your ideas
-                to life with cutting-edge technology and innovative solutions.
+                {t.services.subtitle}
               </p>
             </motion.div>
           </motion.div>
@@ -160,13 +158,16 @@ export default function ServicesPage() {
             className="text-center"
           >
             <h3 className="text-2xl md:text-3xl text-white mb-6">
-              Ready to start your project?
+              {t.services.ctaTitle}
             </h3>
+            <p className="text-gray-300 mb-8 max-w-[600px] mx-auto">
+              {t.services.ctaDescription}
+            </p>
             <a
               href="/#contact"
               className="button-primary px-10 py-4 rounded-full text-white font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 inline-block"
             >
-              Get in Touch
+              {t.services.ctaButton}
             </a>
           </motion.div>
         </section>

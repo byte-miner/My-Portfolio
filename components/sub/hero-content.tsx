@@ -9,8 +9,13 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/locales/translations";
 
 export const HeroContent = () => {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+
   return (
     <motion.div
       initial="hidden"
@@ -25,7 +30,7 @@ export const HeroContent = () => {
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Haruki Nakamura Portfolio
+            {t.hero.welcome}
           </h1>
         </motion.div>
 
@@ -34,25 +39,26 @@ export const HeroContent = () => {
           className="flex flex-col gap-6 mt-6 text-6xl font-extrabold text-white max-w-[800px] w-auto h-auto"
         >
           <span>
-          Providing{" "}
+          {t.hero.title1}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-           the best
+           {t.hero.title2}
             </span>
-          </span>{" "}project exprience
+          </span>{" "}{t.hero.title3}
         </motion.div>
 
         <motion.p
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          I&apos;m a full-stack developer with a passion for creating innovative digital experiences. With expertise in modern web technologies, I transform ideas into elegant, functional solutions that make a difference.
+          {t.hero.description}
         </motion.p>
 
         <motion.a
           variants={slideInFromLeft(1)}
+          href="/#contact"
           className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          Contact Me
+          {t.hero.contactButton}
         </motion.a>
       </div>
 

@@ -10,101 +10,96 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
-
-const PROJECTS = [
-  {
-    title: "MUNITY Ecosystem",
-    description:
-      "Explore our vibrant marketplace where you can buy and sell NFT horses, game consumables, and items using MUNITY tokens! Join the community and dive into a world of endless possibilities.",
-    image: "/projects/nftmarketplace.png",
-    link: "https://example.com",
-    tags: ["React.js", "Web3", "Smart Contracts", "Blockchain"],
-    featured: true,
-  },
-  {
-    title: "Goldencity",
-    description:
-      "GoldenCity is a modern real estate investment platform that combines traditional property investing with cryptocurrency payments. Built with React and Tailwind CSS, it mirrors the functionality of Arrived.com while adding blockchain-based transaction capabilities.",
-    image: "/projects/goldencity.png",
-    link: "https://example.com",
-    tags: ["React", "Tailwind CSS", "Blockchain", "Web3"],
-    featured: true,
-  },
-  {
-    title: "Digital Hero",
-    description:
-      "A mesmerizing space-themed website that invites exploration of cosmic wonders. Features immersive visual effects, 3D elements, and interactive components.",
-    image: "/projects/digital-hero.png",
-    link: "https://www.digi-hero.com/",
-    tags: ["Next.js", "Three.js", "WebGL", "CSS"],
-    featured: true,
-  },
-  {
-    title: "CryptoLand",
-    description:
-      "CryptoLand is a blockchain game on XRPL where players grow kingdoms and turn gameplay into real on-chain value.",
-    image: "/projects/cryptoland.png",
-    link: "https://game.cryptoland.io/",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    featured: false,
-  },
-  {
-    title: "Snargons",
-    description:
-      "Discover Snargons, where NFTs meet purpose. Join us in building a thriving community of adventurers and creators.",
-    image: "/projects/snargons.png",
-    link: "https://www.snargons.xyz/",
-    tags: ["React", "Firebase", "Material UI", "WebSocket"],
-    featured: false,
-  },
-  {
-    title: "Flaregods",
-    description:
-      "This promotes an NFT collection that promises passive income through cashback and token distribution to holders.",
-    image: "/projects/flaregods.png",
-    link: "https://flaregods.xyz/",
-    tags: ["Next.js", "TypeScript", "Chart.js", "REST API"],
-    featured: false,
-  },
-  {
-    title: "Arcus",
-    description:
-      "Secure multi-custodial Bitcoin lending for family offices and institutions. Generate institutional Bitcoin yield through native DeFi solutions with insured custody.",
-    image: "/projects/arcus.png",
-    link: "https://arcusbtc.com/",
-    tags: ["React", "Firebase", "Material UI", "WebSocket"],
-    featured: false,
-  },
-  {
-    title: "Covesting",
-    description:
-      "Covesting is a licensed Distributed Ledger Technology Services provider. We develop innovative trading tools for retail and institutional customers.",
-    image: "/projects/covesting.png",
-    link: "https://covesting.io/",
-    tags: ["React", "Firebase", "Material UI", "WebSocket"],
-    featured: false,
-  },
-  {
-    title: "UniDex",
-    description:
-      "Unidex 50 Tablet ER is a prescription medication used to treat depression by increasing the levels of chemical messengers, serotonin, and noradrenaline, in the brain. These chemicals have a calming effect on the brain and help relax the nerves, ultimately aiding in the treatment of depression.",
-    image: "/projects/unidex.png",
-    link: "https://unidex.exchange/",
-    tags: ["React", "Ethereum", "Binance Coin", "Solidity", "Smart Contracts", "Vue", "Angular"],
-    featured: false,
-  },
-  {
-    title: "PokeDX",
-    description:
-      "Unidex 50 Tablet ER is a prescription medication used to treat depression by increasing the levels of chemical messengers, serotonin, and noradrenaline, in the brain. These chemicals have a calming effect on the brain and help relax the nerves, ultimately aiding in the treatment of depression.",
-    image: "/projects/pokedx.png",
-    link: "https://pokedx.app/",
-    tags: ["Vue", "Ethereum", "Solidity", "Smart Contracts", "React"],
-    featured: false,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/locales/translations";
 
 export default function ProjectsPage() {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+
+  const PROJECTS_WITH_TRANSLATIONS = [
+    {
+      id: 'munity',
+      title: "MUNITY Ecosystem",
+      image: "/projects/nftmarketplace.png",
+      link: "https://example.com",
+      tags: ["React.js", "Web3", "Smart Contracts", "Blockchain"],
+      featured: true,
+    },
+    {
+      id: 'goldencity',
+      title: "Goldencity",
+      image: "/projects/goldencity.png",
+      link: "https://example.com",
+      tags: ["React", "Tailwind CSS", "Blockchain", "Web3"],
+      featured: true,
+    },
+    {
+      id: 'digitalHero',
+      title: "Digital Hero",
+      image: "/projects/digital-hero.png",
+      link: "https://www.digi-hero.com/",
+      tags: ["Next.js", "Three.js", "WebGL", "CSS"],
+      featured: true,
+    },
+    {
+      id: 'cryptoland',
+      title: "CryptoLand",
+      image: "/projects/cryptoland.png",
+      link: "https://game.cryptoland.io/",
+      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      featured: false,
+    },
+    {
+      id: 'snargons',
+      title: "Snargons",
+      image: "/projects/snargons.png",
+      link: "https://www.snargons.xyz/",
+      tags: ["React", "Firebase", "Material UI", "WebSocket"],
+      featured: false,
+    },
+    {
+      id: 'flaregods',
+      title: "Flaregods",
+      image: "/projects/flaregods.png",
+      link: "https://flaregods.xyz/",
+      tags: ["Next.js", "TypeScript", "Chart.js", "REST API"],
+      featured: false,
+    },
+    {
+      id: 'arcus',
+      title: "Arcus",
+      image: "/projects/arcus.png",
+      link: "https://arcusbtc.com/",
+      tags: ["React", "Firebase", "Material UI", "WebSocket"],
+      featured: false,
+    },
+    {
+      id: 'covesting',
+      title: "Covesting",
+      image: "/projects/covesting.png",
+      link: "https://covesting.io/",
+      tags: ["React", "Firebase", "Material UI", "WebSocket"],
+      featured: false,
+    },
+    {
+      id: 'unidex',
+      title: "UniDex",
+      image: "/projects/unidex.png",
+      link: "https://unidex.exchange/",
+      tags: ["React", "Ethereum", "Binance Coin", "Solidity", "Smart Contracts", "Vue", "Angular"],
+      featured: false,
+    },
+    {
+      id: 'pokedx',
+      title: "PokeDX",
+      image: "/projects/pokedx.png",
+      link: "https://pokedx.app/",
+      tags: ["Vue", "Ethereum", "Solidity", "Smart Contracts", "React"],
+      featured: false,
+    },
+  ];
+
   return (
     <main className="h-full w-full">
       <div className="flex flex-col gap-20 pt-32 pb-20">
@@ -121,7 +116,7 @@ export default function ProjectsPage() {
               className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
             >
               <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-              <h1 className="Welcome-text text-[13px]">My Work</h1>
+              <h1 className="Welcome-text text-[13px]">{t.projects.badge}</h1>
             </motion.div>
 
             {/* Main Title */}
@@ -129,9 +124,9 @@ export default function ProjectsPage() {
               variants={slideInFromLeft(0.5)}
               className="text-[40px] md:text-[50px] text-white font-medium mt-[20px] text-center mb-[15px]"
             >
-              Featured{" "}
+              {t.projects.title}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-                Projects
+                {t.projects.title2}
               </span>
             </motion.div>
 
@@ -141,8 +136,7 @@ export default function ProjectsPage() {
               className="text-center max-w-[700px]"
             >
               <p className="text-lg text-gray-300 leading-relaxed mb-4">
-                A collection of projects showcasing my expertise in modern web
-                development, creative problem-solving, and attention to detail.
+                {t.projects.subtitle}
               </p>
             </motion.div>
           </motion.div>
@@ -151,7 +145,7 @@ export default function ProjectsPage() {
         {/* Projects Grid */}
         <section className="px-10 md:px-20 relative z-[20]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-[1400px] mx-auto">
-            {PROJECTS.map((project, index) => (
+            {PROJECTS_WITH_TRANSLATIONS.map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 50 }}
@@ -174,7 +168,7 @@ export default function ProjectsPage() {
                     {/* Featured Badge */}
                     {project.featured && (
                       <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-xs font-semibold">
-                        Featured
+                        {t.projects.featured}
                       </div>
                     )}
                   </div>
@@ -188,7 +182,7 @@ export default function ProjectsPage() {
 
                     {/* Description */}
                     <p className="text-gray-300 mb-4 leading-relaxed line-clamp-3">
-                      {project.description}
+                      {t.projects.descriptions[project.id as keyof typeof t.projects.descriptions]}
                     </p>
 
                     {/* Tags */}
@@ -203,16 +197,16 @@ export default function ProjectsPage() {
                       ))}
                     </div>
 
-                    {/* Link */}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-purple-400 hover:text-cyan-400 transition-colors group/link"
-                    >
-                      <span>View Project</span>
-                      <ArrowTopRightOnSquareIcon className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                    </a>
+                        {/* Link */}
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-purple-400 hover:text-cyan-400 transition-colors group/link"
+                        >
+                          <span>{t.projects.viewProject}</span>
+                          <ArrowTopRightOnSquareIcon className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                        </a>
                   </div>
                 </div>
               </motion.div>
@@ -229,13 +223,16 @@ export default function ProjectsPage() {
             className="text-center"
           >
             <h3 className="text-2xl md:text-3xl text-white mb-6">
-              Interested in working together?
+              {t.projects.ctaTitle}
             </h3>
+            <p className="text-gray-300 mb-8 max-w-[600px] mx-auto">
+              {t.projects.ctaDescription}
+            </p>
             <a
               href="/#contact"
               className="button-primary px-10 py-4 rounded-full text-white font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-purple-500/50 inline-block"
             >
-              Let&apos;s Talk
+              {t.projects.ctaButton}
             </a>
           </motion.div>
         </section>
