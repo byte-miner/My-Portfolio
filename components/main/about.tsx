@@ -328,13 +328,13 @@ export const About = () => {
                         />
                       </>
                     )}
-                    
-                    <Image
-                      src="/images/photo.png"
-                      alt="Profile Photo"
-                      fill
+                
+                <Image
+                  src="/images/photo.png"
+                  alt="Profile Photo"
+                  fill
                       className="object-cover opacity-85 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110 transform"
-                      priority
+                  priority
                       style={{
                         filter: "contrast(1.15) saturate(1.3) brightness(1.05)"
                       }}
