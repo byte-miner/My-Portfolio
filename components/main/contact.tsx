@@ -13,6 +13,119 @@ import {
   slideInFromTop,
 } from "@/lib/motion";
 
+// 7-Segment Display Component
+const SevenSegmentDigit = ({ digit }: { digit: string }) => {
+  const segments = {
+    '0': [true, true, true, true, true, true, false],
+    '1': [false, true, true, false, false, false, false],
+    '2': [true, true, false, true, true, false, true],
+    '3': [true, true, true, true, false, false, true],
+    '4': [false, true, true, false, false, true, true],
+    '5': [true, false, true, true, false, true, true],
+    '6': [true, false, true, true, true, true, true],
+    '7': [true, true, true, false, false, false, false],
+    '8': [true, true, true, true, true, true, true],
+    '9': [true, true, true, true, false, true, true],
+  };
+
+  const [a, b, c, d, e, f, g] = segments[digit as keyof typeof segments] || [false, false, false, false, false, false, false];
+
+  return (
+    <div className="relative inline-block" style={{ width: '50px', height: '80px' }}>
+      {/* Segment A - Top */}
+      <div
+        className={`absolute transition-all duration-200 ${a ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          left: '8px',
+          top: '0px',
+          width: '34px',
+          height: '6px',
+          clipPath: 'polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%)',
+          boxShadow: a ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+
+      {/* Segment B - Top Right */}
+      <div
+        className={`absolute transition-all duration-200 ${b ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          right: '0px',
+          top: '8px',
+          width: '6px',
+          height: '30px',
+          clipPath: 'polygon(0% 10%, 50% 0%, 100% 10%, 100% 90%, 50% 100%, 0% 90%)',
+          boxShadow: b ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+
+      {/* Segment C - Bottom Right */}
+      <div
+        className={`absolute transition-all duration-200 ${c ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          right: '0px',
+          top: '42px',
+          width: '6px',
+          height: '30px',
+          clipPath: 'polygon(0% 10%, 50% 0%, 100% 10%, 100% 90%, 50% 100%, 0% 90%)',
+          boxShadow: c ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+
+      {/* Segment D - Bottom */}
+      <div
+        className={`absolute transition-all duration-200 ${d ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          left: '8px',
+          bottom: '0px',
+          width: '34px',
+          height: '6px',
+          clipPath: 'polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%)',
+          boxShadow: d ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+
+      {/* Segment E - Bottom Left */}
+      <div
+        className={`absolute transition-all duration-200 ${e ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          left: '0px',
+          top: '42px',
+          width: '6px',
+          height: '30px',
+          clipPath: 'polygon(0% 10%, 50% 0%, 100% 10%, 100% 90%, 50% 100%, 0% 90%)',
+          boxShadow: e ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+
+      {/* Segment F - Top Left */}
+      <div
+        className={`absolute transition-all duration-200 ${f ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          left: '0px',
+          top: '8px',
+          width: '6px',
+          height: '30px',
+          clipPath: 'polygon(0% 10%, 50% 0%, 100% 10%, 100% 90%, 50% 100%, 0% 90%)',
+          boxShadow: f ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+
+      {/* Segment G - Middle */}
+      <div
+        className={`absolute transition-all duration-200 ${g ? 'bg-[#06b6d4]' : 'bg-[#0a1a1f]'}`}
+        style={{
+          left: '8px',
+          top: '37px',
+          width: '34px',
+          height: '6px',
+          clipPath: 'polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%)',
+          boxShadow: g ? '0 0 8px #06b6d4, 0 0 12px #06b6d4' : 'none',
+        }}
+      />
+    </div>
+  );
+};
+
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -27,6 +140,9 @@ export const Contact = () => {
     hours: 0,
     minutes: 0,
     seconds: 0,
+    month: 0,
+    dayOfMonth: 0,
+    year: 0,
   });
 
   useEffect(() => {
@@ -58,6 +174,12 @@ export const Contact = () => {
       const minutes = parseInt(timeParts[1]);
       const seconds = parseInt(timeParts[2]);
 
+      // Get Japan date parts
+      const japanDate = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
+      const month = japanDate.getMonth() + 1; // 1-12
+      const dayOfMonth = japanDate.getDate(); // 1-31
+      const year = japanDate.getFullYear() % 100; // Last 2 digits
+
       setJapanTime({
         time: timeString,
         date: dateFormatter.format(now),
@@ -65,6 +187,9 @@ export const Contact = () => {
         hours,
         minutes,
         seconds,
+        month,
+        dayOfMonth,
+        year,
       });
     };
 
@@ -131,7 +256,7 @@ export const Contact = () => {
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left Column - Contact Form */}
         <motion.div
           variants={slideInFromLeft(0.8)}
@@ -205,123 +330,135 @@ export const Contact = () => {
 
           {/* Right Column - Analog Clock Card */}
           <div className="flex flex-col gap-6">
-            {/* Japan Analog Clock Card - Fantastic Design */}
+            {/* Clock Container */}
             <motion.div
               variants={slideInFromRight(0.6)}
-              className="p-8 rounded-xl bg-transparent backdrop-blur-xl transition-all duration-500 group relative overflow-hidden"
-              whileHover={{ scale: 1.02 }}
+              className="flex flex-col items-center"
             >
-              {/* Animated Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 animate-gradient-xy"></div>
+              <div className="text-center mb-6">
+                <h3 className="text-white font-bold text-2xl mb-2">My Local Time</h3>
+                <p className="text-gray-400 text-sm">Japan Standard Time (JST)</p>
               </div>
 
-              {/* Glowing Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Electronic Digital Calendar - 7-Segment Display */}
+                <div className="relative mb-6 flex flex-col items-center gap-4">
+                  {/* Time Display */}
+                  <div className="flex flex-col items-center">
+                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">Time</div>
+                    <div className="relative flex items-center justify-center gap-4">
+                      {/* Hours - First Digit */}
+                      <SevenSegmentDigit digit={japanTime.hours.toString().padStart(2, '0')[0]} />
+                      {/* Hours - Second Digit */}
+                      <SevenSegmentDigit digit={japanTime.hours.toString().padStart(2, '0')[1]} />
 
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="text-center mb-6">
-                  <h3 className="text-white font-bold text-2xl mb-2">My Local Time</h3>
-                  <p className="text-gray-400 text-sm">Japan Standard Time (JST)</p>
-                </div>
-
-                {/* Electronic Digital Clock - Neon Effect */}
-                <div className="relative mb-6 flex flex-col items-center">
-                  {/* Digital Clock Display */}
-                  <div className="relative">
-                    {/* Clock Container */}
-                    <div className="relative px-8 py-6">
-                      {/* Time Display - Neon Numbers */}
-                      <div className="relative flex items-center gap-3">
-                        {/* Hours */}
+                      {/* Separator - Blinking Colon */}
+        <motion.div
+                        className="flex flex-col gap-3 mx-2"
+                        animate={{
+                          opacity: [1, 0.2, 1]
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
                         <div
-                          className="font-mono text-7xl font-bold tracking-wider"
+                          className="w-3 h-3 rounded-full bg-[#06b6d4]"
                           style={{
-                            color: '#0ff',
-                            textShadow: '0 0 10px #0ff, 0 0 20px #0ff'
+                            boxShadow: '0 0 8px #06b6d4, 0 0 12px #06b6d4'
                           }}
-                        >
-                          {japanTime.hours.toString().padStart(2, '0')}
-                        </div>
-
-                        {/* Separator - Blinking Colon */}
-                        <motion.div
-                          className="font-mono text-7xl font-bold"
-                          style={{
-                            color: '#a855f7',
-                            textShadow: '0 0 10px #a855f7'
-                          }}
-                          animate={{
-                            opacity: [1, 0.4, 1]
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          :
-                        </motion.div>
-
-                        {/* Minutes */}
+                        />
                         <div
-                          className="font-mono text-7xl font-bold tracking-wider"
+                          className="w-3 h-3 rounded-full bg-[#06b6d4]"
                           style={{
-                            color: '#06b6d4',
-                            textShadow: '0 0 10px #06b6d4, 0 0 20px #06b6d4'
+                            boxShadow: '0 0 8px #06b6d4, 0 0 12px #06b6d4'
                           }}
-                        >
-                          {japanTime.minutes.toString().padStart(2, '0')}
-                        </div>
+                        />
+                      </motion.div>
 
-                        {/* Separator */}
-                        <motion.div
-                          className="font-mono text-7xl font-bold"
-                          style={{
-                            color: '#a855f7',
-                            textShadow: '0 0 10px #a855f7'
-                          }}
-                          animate={{
-                            opacity: [1, 0.4, 1]
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          :
-                        </motion.div>
+                      {/* Minutes - First Digit */}
+                      <SevenSegmentDigit digit={japanTime.minutes.toString().padStart(2, '0')[0]} />
+                      {/* Minutes - Second Digit */}
+                      <SevenSegmentDigit digit={japanTime.minutes.toString().padStart(2, '0')[1]} />
 
-                        {/* Seconds */}
+                      {/* Separator - Colon */}
+                      <motion.div
+                        className="flex flex-col gap-3 mx-2"
+                        animate={{
+                          opacity: [1, 0.2, 1]
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
                         <div
-                          className="font-mono text-7xl font-bold tracking-wider"
+                          className="w-3 h-3 rounded-full bg-[#06b6d4]"
                           style={{
-                            color: '#ec4899',
-                            textShadow: '0 0 10px #ec4899, 0 0 20px #ec4899'
+                            boxShadow: '0 0 8px #06b6d4, 0 0 12px #06b6d4'
                           }}
-                        >
-                          {japanTime.seconds.toString().padStart(2, '0')}
-                        </div>
+                        />
+                        <div
+                          className="w-3 h-3 rounded-full bg-[#06b6d4]"
+                          style={{
+                            boxShadow: '0 0 8px #06b6d4, 0 0 12px #06b6d4'
+                          }}
+                        />
+                      </motion.div>
+
+                      {/* Seconds - First Digit */}
+                      <SevenSegmentDigit digit={japanTime.seconds.toString().padStart(2, '0')[0]} />
+                      {/* Seconds - Second Digit */}
+                      <SevenSegmentDigit digit={japanTime.seconds.toString().padStart(2, '0')[1]} />
+                    </div>
+                  </div>
+
+                  {/* Day of Week Display */}
+                  <div className="flex flex-col items-center">
+                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">Day</div>
+                    <div className="flex items-center gap-2">
+                      <div 
+                        className="text-xl font-bold tracking-wider"
+                        style={{
+                          color: '#06b6d4',
+                          textShadow: '0 0 8px #06b6d4',
+                          fontFamily: "'Orbitron', monospace"
+                        }}
+                      >
+                        {japanTime.day.toUpperCase()}
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Date Information */}
-                <div className="space-y-2 text-center">
-                  <div className="flex items-center justify-center gap-2 text-gray-300">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                    <span className="text-xl font-semibold">{japanTime.day}</span>
+                  {/* Date Display - 7-Segment Style */}
+                  <div className="flex flex-col items-center">
+                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">Date</div>
+                    <div className="relative flex items-center justify-center gap-2" style={{ transform: 'scale(0.7)', transformOrigin: 'center' }}>
+                      {/* Month - First Digit */}
+                      <SevenSegmentDigit digit={japanTime.month.toString().padStart(2, '0')[0]} />
+                      {/* Month - Second Digit */}
+                      <SevenSegmentDigit digit={japanTime.month.toString().padStart(2, '0')[1]} />
+
+                      {/* Separator - Slash */}
+                      <div className="text-5xl font-bold text-[#06b6d4] mx-1" style={{ textShadow: '0 0 8px #06b6d4' }}>/</div>
+
+                      {/* Day - First Digit */}
+                      <SevenSegmentDigit digit={japanTime.dayOfMonth.toString().padStart(2, '0')[0]} />
+                      {/* Day - Second Digit */}
+                      <SevenSegmentDigit digit={japanTime.dayOfMonth.toString().padStart(2, '0')[1]} />
+
+                      {/* Separator - Slash */}
+                      <div className="text-5xl font-bold text-[#06b6d4] mx-1" style={{ textShadow: '0 0 8px #06b6d4' }}>/</div>
+
+                      {/* Year - First Digit */}
+                      <SevenSegmentDigit digit={japanTime.year.toString().padStart(2, '0')[0]} />
+                      {/* Year - Second Digit */}
+                      <SevenSegmentDigit digit={japanTime.year.toString().padStart(2, '0')[1]} />
+                    </div>
                   </div>
-                  <div className="text-gray-400 text-lg">{japanTime.date}</div>
                 </div>
-
-                {/* Timezone Badge */}
-                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/30">
-                  <span className="text-sm text-purple-300 font-medium">🇯🇵 Tokyo, Japan (UTC+9)</span>
-                </div>
-              </div>
         </motion.div>
           </div>
         </div>
