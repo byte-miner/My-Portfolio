@@ -12,6 +12,8 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/locales/translations";
 
 // 7-Segment Display Component
 const SevenSegmentDigit = ({ digit }: { digit: string }) => {
@@ -127,6 +129,9 @@ const SevenSegmentDigit = ({ digit }: { digit: string }) => {
 };
 
 export const Contact = () => {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -230,7 +235,7 @@ export const Contact = () => {
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[13px]">Get in Touch</h1>
+          <h1 className="Welcome-text text-[13px]">{t.contact.badge}</h1>
         </motion.div>
 
         {/* Main Title */}
@@ -238,9 +243,9 @@ export const Contact = () => {
           variants={slideInFromLeft(0.5)}
           className="text-[30px] md:text-[40px] text-white font-medium mt-[20px] text-center mb-[15px]"
         >
-          Let&apos;s{" "}
+          {t.contact.title}{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            Connect
+            {t.contact.title2}
           </span>
         </motion.div>
 
@@ -249,9 +254,7 @@ export const Contact = () => {
           className="text-center max-w-[600px] mb-12"
         >
           <p className="text-lg text-gray-300 leading-relaxed">
-            Have a project in mind or just want to chat? Feel free to reach out.
-            I&apos;m always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision.
+            {t.contact.subtitle}
           </p>
         </motion.div>
 
@@ -262,12 +265,12 @@ export const Contact = () => {
           variants={slideInFromLeft(0.8)}
             className="p-8 rounded-xl bg-[#03001427] border border-[#7042f88b] backdrop-blur-md"
         >
-            <h3 className="text-white text-2xl font-semibold mb-6">Send a Message</h3>
+            <h3 className="text-white text-2xl font-semibold mb-6">{t.contact.formTitle}</h3>
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             {/* Name Field */}
             <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-gray-300 text-sm font-medium">
-                  Your Name *
+                  {t.contact.nameLabel} *
               </label>
               <input
                 type="text"
@@ -277,14 +280,14 @@ export const Contact = () => {
                 onChange={handleChange}
                 required
                   className="px-4 py-3 rounded-lg bg-[#0a0a1a] border border-[#7042f88b] text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                placeholder="John Doe"
+                placeholder={t.contact.namePlaceholder}
               />
             </div>
 
             {/* Email Field */}
             <div className="flex flex-col gap-2">
                 <label htmlFor="email" className="text-gray-300 text-sm font-medium">
-                  Your Email *
+                  {t.contact.emailLabel} *
               </label>
               <input
                 type="email"
@@ -294,14 +297,14 @@ export const Contact = () => {
                 onChange={handleChange}
                 required
                   className="px-4 py-3 rounded-lg bg-[#0a0a1a] border border-[#7042f88b] text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                placeholder="john@example.com"
+                placeholder={t.contact.emailPlaceholder}
               />
             </div>
 
             {/* Message Field */}
             <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-gray-300 text-sm font-medium">
-                  Your Message *
+                  {t.contact.messageLabel} *
               </label>
               <textarea
                 id="message"
@@ -311,7 +314,7 @@ export const Contact = () => {
                 required
                   rows={5}
                   className="px-4 py-3 rounded-lg bg-[#0a0a1a] border border-[#7042f88b] text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"
-                placeholder="Tell me about your project..."
+                placeholder={t.contact.messagePlaceholder}
               />
             </div>
 
@@ -322,7 +325,7 @@ export const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
             >
-                <span>Send Message</span>
+                <span>{t.contact.sendButton}</span>
                 <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </motion.button>
           </form>
@@ -336,15 +339,15 @@ export const Contact = () => {
               className="flex flex-col items-center"
             >
               <div className="text-center mb-6">
-                <h3 className="text-white font-bold text-2xl mb-2">My Local Time</h3>
-                <p className="text-gray-400 text-sm">Japan Standard Time (JST)</p>
+                <h3 className="text-white font-bold text-2xl mb-2">{t.contact.clockTitle}</h3>
+                <p className="text-gray-400 text-sm">{t.contact.clockSubtitle}</p>
               </div>
 
                 {/* Electronic Digital Calendar - 7-Segment Display */}
                 <div className="relative mb-6 flex flex-col items-center gap-4">
                   {/* Time Display */}
                   <div className="flex flex-col items-center">
-                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">Time</div>
+                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">{t.contact.time}</div>
                     <div className="relative flex items-center justify-center gap-4">
                       {/* Hours - First Digit */}
                       <SevenSegmentDigit digit={japanTime.hours.toString().padStart(2, '0')[0]} />
@@ -417,7 +420,7 @@ export const Contact = () => {
 
                   {/* Day of Week Display */}
                   <div className="flex flex-col items-center">
-                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">Day</div>
+                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">{t.contact.day}</div>
                     <div className="flex items-center gap-2">
                       <div 
                         className="text-xl font-bold tracking-wider"
@@ -434,7 +437,7 @@ export const Contact = () => {
 
                   {/* Date Display - 7-Segment Style */}
                   <div className="flex flex-col items-center">
-                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">Date</div>
+                    <div className="text-gray-400 text-xs mb-1 uppercase tracking-widest">{t.contact.date}</div>
                     <div className="relative flex items-center justify-center gap-2" style={{ transform: 'scale(0.7)', transformOrigin: 'center' }}>
                       {/* Month - First Digit */}
                       <SevenSegmentDigit digit={japanTime.month.toString().padStart(2, '0')[0]} />
@@ -457,6 +460,11 @@ export const Contact = () => {
                       {/* Year - Second Digit */}
                       <SevenSegmentDigit digit={japanTime.year.toString().padStart(2, '0')[1]} />
                     </div>
+                  </div>
+
+                  {/* Timezone Badge */}
+                  <div className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/30">
+                    <span className="text-sm text-purple-300 font-medium">{t.contact.location}</span>
                   </div>
                 </div>
         </motion.div>

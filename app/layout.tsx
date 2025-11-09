@@ -7,6 +7,7 @@ import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import "./globals.css";
 
@@ -27,10 +28,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
           inter.className
         )}
       >
-        <StarsCanvas />
-        <Navbar />
-        {children}
-        <Footer />
+        <LanguageProvider>
+          <StarsCanvas />
+          <Navbar />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

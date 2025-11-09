@@ -10,8 +10,13 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/locales/translations";
 
 export const About = () => {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+
   const [isHovered, setIsHovered] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -49,7 +54,7 @@ export const About = () => {
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[13px]">About Me</h1>
+          <h1 className="Welcome-text text-[13px]">{t.about.badge}</h1>
         </motion.div>
 
         {/* Main Title */}
@@ -57,11 +62,9 @@ export const About = () => {
           variants={slideInFromLeft(0.5)}
           className="text-[30px] md:text-[40px] text-white font-medium mt-[20px] text-center mb-[15px]"
         >
-          Passionate{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            Developer
-          </span>{" "}
-          & Creative Thinker
+            {t.about.title}
+          </span>
         </motion.div>
 
         {/* Two Column Layout: Text Left, Photo Right */}
@@ -72,26 +75,13 @@ export const About = () => {
             className="flex-1 text-center md:text-left"
           >
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              Hello! I&apos;m Haruki Nakamura, a passionate full-stack developer 
-              specializing in building exceptional digital experiences. Currently, 
-              I focus on creating responsive web applications using Next.js, React, 
-              and modern backend technologies.
+              {t.about.description1}
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              My journey in tech started with a curiosity for how things work, which 
-              evolved into a career where I get to solve real-world problems through 
-              code. I believe in writing clean, maintainable code and creating 
-              user-centric designs that not only look great but also provide seamless 
-              functionality.
+              {t.about.description2}
             </p>
             <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-              When I&apos;m not coding, you&apos;ll find me exploring new technologies, 
-              contributing to open-source projects, or sharing knowledge with the 
-              developer community. I&apos;m always eager to take on new challenges 
-              and collaborate on innovative projects.
-            </p>
-            <p className="cursive text-[20px] text-gray-200 mt-8">
-              Let&apos;s create something extraordinary together.
+              {t.about.description3}
             </p>
           </motion.div>
 
@@ -511,7 +501,7 @@ export const About = () => {
               5+
             </div>
             <div className="text-gray-300 text-[14px] mt-2">
-              Years Experience
+              {t.about.yearsExperience}
             </div>
           </div>
           <div className="flex flex-col items-center">
@@ -519,7 +509,7 @@ export const About = () => {
               50+
             </div>
             <div className="text-gray-300 text-[14px] mt-2">
-              Projects Completed
+              {t.about.projectsCompleted}
             </div>
           </div>
           <div className="flex flex-col items-center">
@@ -527,7 +517,7 @@ export const About = () => {
               100%
             </div>
             <div className="text-gray-300 text-[14px] mt-2">
-              Client Satisfaction
+              {t.about.clientSatisfaction}
             </div>
           </div>
         </motion.div>

@@ -8,8 +8,13 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/lib/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/locales/translations";
 
 export const SkillText = () => {
+  const { language } = useLanguage();
+  const t = getTranslation(language);
+
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center">
       <motion.div
@@ -18,7 +23,7 @@ export const SkillText = () => {
       >
         <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
         <h1 className="Welcome-text text-[13px]">
-          Think better with Next.js 14
+          {t.skills.badge}
         </h1>
       </motion.div>
 
@@ -26,14 +31,14 @@ export const SkillText = () => {
         variants={slideInFromLeft(0.5)}
         className="text-[30px] text-white font-medium mt-[10px] text-center mb-[15px]"
       >
-        Making apps with modern technologies.
+        {t.skills.title}
       </motion.div>
 
       <motion.div
         variants={slideInFromRight(0.5)}
         className="cursive text-[20px] text-gray-200 mb-10 mt-[10px] text-center"
       >
-        Never miss a task, deadline or idea.
+        {t.skills.subtitle}
       </motion.div>
     </div>
   );
