@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { 
   RxGithubLogo, 
-  RxDiscordLogo 
+  RxDiscordLogo,
+  RxLinkedinLogo
 } from "react-icons/rx";
 import { 
   FaTelegram, 
@@ -31,12 +32,17 @@ export const Footer = () => {
         {
           name: t.footer.stackoverflow,
           icon: FaStackOverflow,
-          link: "https://stackoverflow.com/users/youruserid",
+          link: "https://stackoverflow.com/users/31847039/haruki-nakamura",
         },
         {
           name: t.footer.devCommunity,
           icon: FaDev,
-          link: "https://dev.to/yourusername",
+          link: "https://dev.to/harukin399",
+        },
+        {
+          name: t.footer.linkedin,
+          icon: RxLinkedinLogo,
+          link: "https://www.linkedin.com/in/haruki-nakamura-384669398/",
         },
       ],
     },
