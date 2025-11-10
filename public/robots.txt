@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (if any)
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://harukinakamura.dev/sitemap.xml
+
+# Crawl-delay for bots (optional)
+Crawl-delay: 0
+

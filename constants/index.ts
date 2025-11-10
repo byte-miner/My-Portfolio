@@ -303,12 +303,17 @@ export const FOOTER_DATA = [
       {
         name: "Stack Overflow",
         icon: FaStackOverflow,
-        link: "https://stackoverflow.com/users/youruserid",
+        link: "https://stackoverflow.com/users/31847039/haruki-nakamura",
       },
       {
         name: "Dev Community",
         icon: FaDev,
-        link: "https://dev.to/yourusername",
+        link: "https://dev.to/harukin399",
+      },
+      {
+        name: "LinkedIn",
+        icon: RxLinkedinLogo,
+        link: "https://www.linkedin.com/in/haruki-nakamura-384669398/",
       },
     ],
   },
