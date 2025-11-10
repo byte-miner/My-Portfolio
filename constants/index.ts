@@ -98,7 +98,7 @@ export const SOCIALS = [
   {
     name: "Discord",
     icon: RxDiscordLogo,
-    link: "https://discord.com",
+    link: "https://discord.com/users/harukin399",
   },
   {
     name: "Telegram",
@@ -333,7 +333,7 @@ export const FOOTER_DATA = [
       {
         name: "Discord",
         icon: RxDiscordLogo,
-        link: "https://discord.gg/yourinvite",
+        link: "https://discord.com/users/harukin399",
       },
     ],
   },

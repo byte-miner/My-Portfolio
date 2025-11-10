@@ -62,7 +62,7 @@ export const Footer = () => {
         {
           name: t.footer.discord,
           icon: RxDiscordLogo,
-          link: "https://discord.gg/yourinvite",
+          link: "https://discord.com/users/harukin399",
         },
       ],
     },
